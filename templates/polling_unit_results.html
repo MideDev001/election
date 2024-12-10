@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Polling Unit Results</title>
+</head>
+<body>
+    <h1>Results for Polling Unit: {{ polling_unit.polling_unit_id }}</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Party</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.party_abbreviation }}</td>
+                <td>{{ result.party_score }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

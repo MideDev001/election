@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Polling Unit Results</title>
+</head>
+<body>
+    <h1>Add Results for a New Polling Unit</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="polling_unit_id">Polling Unit ID:</label>
+        <input type="number" name="polling_unit_id" id="polling_unit_id" required><br><br>
+
+        <label for="ward_id">Ward ID:</label>
+        <input type="number" name="ward_id" id="ward_id" required><br><br>
+
+        <label for="lga_id">LGA ID:</label>
+        <input type="number" name="lga_id" id="lga_id" required><br><br>
+
+        <h3>Party Results</h3>
+        <p>Enter results in the format Party:Score (e.g., PDP:800)</p>
+        <textarea name="party_result" rows="5" cols="40" required></textarea><br><br>
+
+        <button type="submit">Submit Results</button>
+    </form>
+</body>
+</html>

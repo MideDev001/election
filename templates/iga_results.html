@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LGA Results</title>
+</head>
+<body>
+    <h1>Total Results by Local Government</h1>
+    <form method="get">
+        <label for="lga">Select Local Government:</label>
+        <select name="lga_id" id="lga">
+            <option value="">-- Select LGA --</option>
+            {% for lga in lgas %}
+            <option value="{{ lga.lga_id }}" {% if lga.lga_id == selected_lga_id|int %}selected{% endif %}>
+                {{ lga.lga_name }}
+            </option>
+            {% endfor %}
+        </select>
+        <button type="submit">View Results</button>
+    </form>
+
+    {% if total_scores %}
+    <h2>Summed Total Results</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Party</th>
+                <th>Total Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in total_scores %}
+            <tr>
+                <td>{{ result.party_abbreviation }}</td>
+                <td>{{ result.total_score }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Select a local government to view results.</p>
+    {% endif %}
+</body>
+</html>
